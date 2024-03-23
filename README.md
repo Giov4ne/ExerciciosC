@@ -1,2 +1,1 @@
-# ExerciciosC
-Lista de exercícios em C
+Exercícios da faculdade de Análise e Desenvolvimento de Sistemas, em linguagem C
