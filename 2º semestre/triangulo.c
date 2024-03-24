@@ -4,46 +4,48 @@ equilátero, isósceles ou escaleno.*/
 
 #include <stdio.h>
 
-void lerTriangulo(float *ladoA, float *ladoB, float *ladoC);
-void identificarTriangulo(float ladoA, float ladoB, float ladoC);
+typedef struct{
+    float ladoA;
+    float ladoB;
+    float ladoC;
+} Triangulo;
+
+void lerLadosDoTriangulo(Triangulo *t);
+void verificarTriangulo(Triangulo t);
 
 int main(){
-    float ladoA, ladoB, ladoC;
-    lerTriangulo(&ladoA, &ladoB, &ladoC);
-    identificarTriangulo(ladoA, ladoB, ladoC);
+    Triangulo t;
+    lerLadosDoTriangulo(&t);
+    verificarTriangulo(t);
     return 0;
 }
 
-void lerTriangulo(float *ladoA, float *ladoB, float *ladoC){
+void lerLadosDoTriangulo(Triangulo *t){
     do{
         printf("Lado A: ");
-        scanf("%f", ladoA);
-        if(*ladoA <= 0){
+        scanf("%f", &(t->ladoA));
+        if(t->ladoA <= 0)
             printf("Valor invalido!!\n");
-        }
-    } while(*ladoA <= 0);
+    } while(t->ladoA <= 0);
     do{
         printf("Lado B: ");
-        scanf("%f", ladoB);
-        if(*ladoB <= 0){
+        scanf("%f", &(t->ladoB));
+        if(t->ladoB <= 0)
             printf("Valor invalido!!\n");
-        }
-    } while(*ladoB <= 0);
+    } while(t->ladoB <= 0);
     do{
         printf("Lado C: ");
-        scanf("%f", ladoC);
-        if(*ladoC <= 0){
+        scanf("%f", &(t->ladoC));
+        if(t->ladoC <= 0)
             printf("Valor invalido!!\n");
-        }
-    } while(*ladoC <= 0);
+    } while(t->ladoC <= 0);
 }
 
-void identificarTriangulo(float ladoA, float ladoB, float ladoC){
-    if(ladoA == ladoB && ladoB == ladoC && ladoC == ladoA){
-        printf("O triangulo e equilatero\n");
-    } else if(ladoA == ladoB || ladoB == ladoC || ladoA == ladoC){
-        printf("O triangulo e isosceles\n");
-    } else{
-        printf("O triangulo e escaleno\n");
-    }
+void verificarTriangulo(Triangulo t){
+    if(t.ladoA == t.ladoB && t.ladoB == t.ladoC)
+        printf("O triangulo e equilatero.\n");
+    else if(t.ladoA == t.ladoB || t.ladoA == t.ladoC || t.ladoB == t.ladoC)
+        printf("O triangulo e isosceles.\n");
+    else
+        printf("O triangulo e escaleno.\n");
 }
