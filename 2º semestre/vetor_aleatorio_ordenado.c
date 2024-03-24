@@ -1,3 +1,7 @@
+/*
+Faça um programa que preencha um vetor com valores aleatórios, sem repetição de valores. Após isso, o vetor deve ser ordenado de forma crescente.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
