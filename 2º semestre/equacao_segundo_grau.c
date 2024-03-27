@@ -7,14 +7,14 @@ typedef enum {FALSE, TRUE} Bool;
 
 void lerValores(float *a, float *b, float *c);
 void calcEquacaoSegundoGrau(float a, float b, float c, float *x1, float *x2, Bool *existeRaizReal);
-void exibirResultado(float *x1, float *x2, Bool *existeRaizReal);
+void exibirResultado(float x1, float x2, Bool existeRaizReal);
 
 int main(){
     float a, b, c, x1, x2;
     Bool existeRaizReal = TRUE;
     lerValores(&a, &b, &c);
     calcEquacaoSegundoGrau(a, b, c, &x1, &x2, &existeRaizReal);
-    exibirResultado(&x1, &x2, &existeRaizReal);
+    exibirResultado(x1, x2, existeRaizReal);
     return 0;
 }
 
@@ -37,13 +37,13 @@ void calcEquacaoSegundoGrau(float a, float b, float c, float *x1, float *x2, Boo
     }
 }
 
-void exibirResultado(float *x1, float *x2, Bool *existeRaizReal){
-    if(*existeRaizReal == FALSE){
+void exibirResultado(float x1, float x2, Bool existeRaizReal){
+    if(existeRaizReal == FALSE){
         printf("Equacao sem raizes reais.\n");
-    } else if(*x1 == *x2){
-        printf("X = %f\n", *x1);
+    } else if(x1 == x2){
+        printf("X = %f\n", x1);
     } else{
-        printf("X1 = %.2f\n", *x1);
-        printf("X2 = %.2f\n", *x2);
+        printf("X1 = %.2f\n", x1);
+        printf("X2 = %.2f\n", x2);
     }
 }
